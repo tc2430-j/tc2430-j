@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab切换封装</title>
+</head>
+<body>
+    <div id="tab">
+        <button>标签一</button>
+        <button>标签二</button>
+        <button>标签三</button>
+        <button>标签四</button>
+        <button>标签五</button>
+        <div>内容一</div>
+        <div>内容二</div>
+        <div>内容三</div>
+        <div>内容四</div>
+        <div>内容五</div>
+    </div>
+    <style>
+        #tab{
+            width: 500px;
+            height: 460px;
+            background-color: rgba(3, 4, 55, 0.1);
+            margin: 0 auto;
+        }
+        #tab button{
+            width: 80px;
+            height: 50px;
+        }
+        #tab div{
+            width: 490px ;
+            height: 400px;
+            background-color: rgba(22, 55, 88, 0.1);
+            border: 1px solid #000000;
+            display: block;
+            text-align: center;
+            line-height: 400px;
+        }
+    </style>
+    <script>
+        var ta=document.getElementById("tab");
+        var btn=ta.getElementsByTagName("button");
+        var dd=ta.getElementsByTagName("div")
+        for(j=0;j<btn.length;j++){
+            dd[j].style.display="none"
+        }
+        dd[0].style.display="block"
+        for(i=0;i<btn.length;i++){
+            btn[i].index=i;
+            btn[i].onclick=function(){
+                for(j=0;j<btn.length;j++){
+                    dd[j].style.display="none"
+                }
+                ta.getElementsByTagName("div")[this.index].style.display="block"
+            }
+        }
+    </script>
+</body>
+</html>
